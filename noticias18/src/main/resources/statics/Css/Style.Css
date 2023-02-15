@@ -1,0 +1,13 @@
+#cuerpo{
+    margin: 200px 200px;
+}
+
+body{
+    background-image: url(../Imagenes/Fondodiario.jpg) ;
+    width: 100%;
+    height: 100%;
+}
+
+.t-op{
+    background-color: white;
+}
