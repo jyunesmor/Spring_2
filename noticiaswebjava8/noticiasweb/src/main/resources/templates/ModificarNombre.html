@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar Nombre de Periodista</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link href="/css/Style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand"  th:href="@{/noticia/listaNoti}">
+                        <img src="/imagen/Noticias3.png" alt="Logo" width="180" height="100" class="d-inline-block align-text-top">
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNav"></div>
+                    <ul class="navbar-nav gap-4 ml-auto me-5">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                Noticia
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" th:href="@{/noticia/registrar}">Crear Noticia</a></li>
+                                <li><a class="dropdown-item" th:href="@{/noticia/listaNoti}">Mostrar Noticias</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                Periodista
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"  th:href="@{/periodista/registrar}">Crear Periodista</a></li>
+                                <li><a class="dropdown-item" th:href="@{/periodista/listaPeri}">Mostrar Periodistas</a></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <br>
+    <div>
+      <div th:if="${error != null}" class="alert alert-primary d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:">
+          <use xlink:href="#info-fill" />
+        </svg>
+        <div>
+          <p th:text="${error}"></p>
+        </div>
+      </div>
+      <div th:if="${exito != null}" class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
+          <use xlink:href="#check-circle-fill" />
+        </svg>
+        <div>
+          <p th:text="${exito}"></p>
+        </div>
+      </div>
+    </div>
+
+    <form th:action="@{/periodista/modificarNombre/__${periodista.id}__}" method="post">
+      <div id="cuerpo">
+        <div>
+          <label for="nombre" class="form-label"><strong>Apellido y Nombre</strong></label>
+          <input type="text" class="form-control" id="nombre" name="nombre"
+            placeholder="Ingrese Apellido y Nombre completo">
+        </div> <br>
+        <div>
+          <label for="dni" class="form-label"><strong>Número de CUIT / CUIL</strong></label>
+          <input type="text" readOnly class="form-control" id="dni" th:value="${periodista.documento}">
+        </div> <br>
+        <div>
+          <label for="mail" class="form-label"><strong>Ingrese su E-mail</strong></label>
+          <input type="email" readOnly class="form-control" id="mail" th:value="${periodista.mail}">
+        </div> <br>
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="imagen"><strong>Foto del Periodista</strong></label>
+          <input type="file" class="form-control" id="imagen" name="imagen">
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+          <button class="btn btn-primary" type="submit">Actualizar Nombre</button>
+        </div>
+      </div>
+      <br>
+    </form>
+
+  </body>
+
+</html>

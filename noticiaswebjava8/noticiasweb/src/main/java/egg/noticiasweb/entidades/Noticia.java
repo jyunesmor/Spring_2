@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,6 +26,12 @@ public class Noticia {
     
     @Temporal(TemporalType.DATE)
     private Date alta;
+    
+    @ManyToOne
+    private Periodista idCreador;
+    
+    @OneToOne
+    private Imagen idImagen;
 
     public Noticia() {
     }
@@ -52,9 +60,27 @@ public class Noticia {
         this.alta = alta;
     }
 
+    public Periodista getIdCreador() {
+        return idCreador;
+    }
+
+    public void setIdCreador(Periodista idCreador) {
+        this.idCreador = idCreador;
+    }
+    
     public String getId() {
         return id;
     }
+
+    public Imagen getIdImagen() {
+        return idImagen;
+    }
+
+    public void setIdImagen(Imagen idImagen) {
+        this.idImagen = idImagen;
+    }
+    
+    
     
     
     
