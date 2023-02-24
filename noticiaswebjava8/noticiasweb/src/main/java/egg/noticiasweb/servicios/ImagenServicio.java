@@ -53,7 +53,7 @@ public class ImagenServicio {
                 img.setMime(archivo.getContentType());
                 img.setNombre(archivo.getName());
                 img.setContenido(archivo.getBytes());
-               return irepo.save(img);
+                return irepo.save(img);
             } catch (IOException ex) {
                 throw new MiException("No puede Procesarse la Carga de la imagen");
             }

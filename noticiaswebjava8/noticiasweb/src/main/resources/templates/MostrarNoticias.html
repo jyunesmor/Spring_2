@@ -62,21 +62,22 @@
                 <p th:text="${exito}"></p>
             </div>
         </div>
-        <main class="container-sm mx-auto" style="width: 800px;">
-            <h1 class="tit"><u>Listado de Noticias</u></h1>
-            <div class="card mb-3" th:each="noti :${noticias}">
-                <img class="img-fluid rounded-start" th:src="@{/imagen/imgNoti/__${noti.id}__}" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${noti.titulo}"></h5>
-                    <p class="card-text" th:text="${noti.contenido}"></p>
-                    <p class="card-text"><small class="text-muted" th:text="${noti.alta}" th:s></small></p>
-                    <p class="card-text"><small class="text-muted" th:text="${noti.idCreador.apellido_nombre}"></small></p>
-                    <div class=" d-grid gap-2 col-6 mx-auto">
-                        <a th:href="@{/noticia/mostrarNoticia/__${noti.id}__}" class="btn btn-primary">Ver Noticia</a>
-                        <a th:href="@{/noticia/eliminarNoticia/__${noti.id}__}" class="btn btn-primary">Eliminar Noticia</a>
-                    </div>  
+        <h1 class="tit"><u>Listado de Noticias</u></h1>
+        <div class="contenedor" >
+            <div class="card mb-3 contenedor-flex" th:each="noti :${noticias}">
+                <img style="width: 300px; height: 150px; border: 1px solid black;" th:src="@{/imagen/imgNoti/__${noti.id}__}" alt="...">
+                <div class="card-body"> 
+                    <h6 class="card-title justify-content-top" th:text="${noti.titulo}"></h6>
+                    <p class="card-text text-sm-start"><small class="text-muted" th:text="${noti.idCreador.apellido_nombre}"></small></p>
+                    <div class= "d-md-block align-middle mx-auto">
+                        <a th:href="@{/noticia/mostrarNoticia/__${noti.id}__}" class="btn btn-primary btn-sm">Ver Noticia</a>
+                        <a th:href="@{/noticia/eliminarNoticia/__${noti.id}__}" class="btn btn-primary btn-sm">Eliminar Noticia</a>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
     </body>
 </html>
+
+
+
