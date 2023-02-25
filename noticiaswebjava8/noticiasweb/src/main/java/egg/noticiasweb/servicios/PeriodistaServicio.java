@@ -34,7 +34,6 @@ public class PeriodistaServicio {
 
         periodista.setApellido_nombre(apellido_nombre);
         periodista.setDocumento(documento);
-        periodista.setMail(mail);
 
         Imagen img = is.guardarImagen(archivo);
         periodista.setImagen(img);
@@ -99,23 +98,6 @@ public class PeriodistaServicio {
         }
     }
 
-    public void modificarMail(String id, String mail) throws MiException {
-
-        if (mail == null || mail.isEmpty()) {
-            throw new MiException("El E-mail no debe estar vacio!!!");
-        }
-
-        Optional<Periodista> respuesta = prepo.findById(id);
-        if (respuesta.isPresent()) {
-
-            Periodista p = respuesta.get();
-            p.setMail(mail);
-
-            prepo.save(p);
-        }
-
-    }
-
     public void modificarDocuemnto(String id, String documento) throws MiException {
 
         if (documento == null || documento.isEmpty()) {
@@ -133,14 +115,14 @@ public class PeriodistaServicio {
 
     }
 
-    public void eliminarPeriodista(String id) throws MiException{
+    public void eliminarPeriodista(String id) throws MiException {
 
         Optional<Periodista> respuesta = prepo.findById(id);
-        
+
         if (respuesta.isPresent()) {
 
             Periodista p = respuesta.get();
-            
+
             prepo.delete(p);
         }
 

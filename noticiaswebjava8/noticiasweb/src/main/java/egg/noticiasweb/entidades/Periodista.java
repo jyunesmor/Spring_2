@@ -4,6 +4,7 @@
  */
 package egg.noticiasweb.entidades;
 
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,7 +22,8 @@ public class Periodista {
     
     private String apellido_nombre;
     private String documento;
-    private String mail;
+    private ArrayList<Noticia> misnoticias;
+    private Integer salario;
     
     @OneToOne
     private Imagen imagen;
@@ -46,14 +48,6 @@ public class Periodista {
         this.documento = documento;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
     public String getId() {
         return id;
     }
@@ -65,6 +59,23 @@ public class Periodista {
     public void setImagen(Imagen imagen) {
         this.imagen = imagen;
     }
+
+    public ArrayList<Noticia> getMisnoticias() {
+        return misnoticias;
+    }
+
+    public void setMisnoticias(ArrayList<Noticia> misnoticias) {
+        this.misnoticias = misnoticias;
+    }
+
+    public Integer getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Integer salario) {
+        this.salario = salario;
+    }
+    
     
     
     

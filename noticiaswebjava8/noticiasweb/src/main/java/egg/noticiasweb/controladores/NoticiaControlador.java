@@ -60,7 +60,7 @@ public class NoticiaControlador {
         lista.sort(comparadores.ordenarPorFecha);
         modelo.addAttribute("noticias", lista);
 
-        return "MostrarNoticias.html";
+        return "ListadoNoticias.html";
     }
 
     @GetMapping("/mostrarNoticia/{id}")
@@ -72,7 +72,7 @@ public class NoticiaControlador {
     @GetMapping("/mostrarTitulo/{id}")
     public String modificarTitulo(@PathVariable String id, ModelMap modelo) {
         modelo.put("noticia", ns.getOne(id));
-        return "ModificarTitulo.html";
+        return "ModificarTituloNoticia.html";
     }
 
     @PostMapping("/modificarTitulo/{id}")

@@ -1,7 +1,9 @@
 package egg.noticiasweb.controladores;
 
+import egg.noticiasweb.entidades.Noticia;
 import egg.noticiasweb.entidades.Periodista;
 import egg.noticiasweb.excepciones.MiException;
+import egg.noticiasweb.servicios.NoticiaServicio;
 import egg.noticiasweb.servicios.PeriodistaServicio;
 import egg.noticiasweb.utilidades.comparadores;
 import java.util.List;
@@ -22,6 +24,9 @@ public class PeriodistaControlador {
 
     @Autowired
     PeriodistaServicio ps;
+
+    @Autowired
+    NoticiaServicio ns;
 
     @GetMapping("/registrar") // LocalHost:8080/periodista
     public String registrar() {
@@ -100,25 +105,6 @@ public class PeriodistaControlador {
         }
     }
 
-    @GetMapping("/mostrarMail/{id}")
-    public String modificarMail(@PathVariable String id, ModelMap modelo) {
-        modelo.put("periodista", ps.getOne(id));
-        return "ModificarEMail.html";
-    }
-
-    @PostMapping("/modificarMail/{id}")
-    public String modificarMail(@PathVariable String id,
-            @RequestParam String mail, RedirectAttributes atrr) {
-        try {
-            ps.modificarMail(id, mail);
-            atrr.addFlashAttribute("exito", "La Noticia se Modifico exitosamente");
-            return "redirect:/periodista/mostrarPeriodista/{id}";
-        } catch (MiException ex) {
-            atrr.addFlashAttribute("error", ex.getMessage());
-            return "redirect:/periodista/mostrarPeriodista/{id}";
-        }
-    }
-
     @GetMapping("/listaPeri")
     public String listar(ModelMap modelo) {
         List<Periodista> lista = ps.listarPeriodistas();
@@ -144,6 +130,21 @@ public class PeriodistaControlador {
             atrr.addFlashAttribute("error", ex.getMessage());
             return "redirect:/noticia/listaNoti";
         }
+    }
+
+    @GetMapping("/listaNotiPeri")
+    public String listarNotiPerio(ModelMap modelo) {
+        List<Noticia> lista = ns.listarnoticias();
+        lista.sort(comparadores.ordenarPorFecha);
+        modelo.addAttribute("noticias", lista);
+
+        return "ListadoNoticiasPeriodistas.html";
+    }
+
+    @GetMapping("/mostrarNoticiaPeriodista/{id}")
+    public String mostrarNotiPeri(@PathVariable String id, ModelMap modelo) {
+        modelo.put("noticia", ns.getOne(id));
+        return "MostrarNoticiaPeriodista.html";
     }
 
 }

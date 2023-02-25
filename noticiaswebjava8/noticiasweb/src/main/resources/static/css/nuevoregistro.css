@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    background-image: url(../imagen/Fondo Period.jpg);
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    font-family: 'Shantell Sans', cursive;
+    font-size: 2rem;
+}
+
+.form {
+    border: 1px solid blue;
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #fdf697;
+    box-shadow: 7px 13px 37px #000;
+    font-family: 'Shantell Sans', cursive;
+    font-size: 1rem;
+}
+
+.form h3 {
+    font-size: 1.75rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-inputs {
+    padding: 15px;
+    margin-bottom: 18px;
+    width: 100%;
+    font-family: 'Shantell Sans', cursive;
+    font-size: 1rem;
+}
+
+.form-btn{
+    width: 100%;
+    height: 40px;
+    background: #017bab;
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.nav-text{
+    padding: 10px;
+    font-family: 'Shantell Sans', cursive;
+    font-size: 1.25rem;
+    color: darkred;
+}
+
+
+item-nav:hover{
+    color: blueviolet;
+    background-color: bisque;
+}
+
+.logo{
+    width: 200px;
+    height: 100px;
+    margin: 5px;
+}
+
+
+.red-social a{
+    font-size: 1rem;
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.red-social a:hover{
+    color: aqua;
+}
+
+.text{
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.pie-pagina{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+
+footer{
+    width: 100%;
+    background-color: #fdf697;
+}
+
+<!-- listado noticias -->
+
+div h6{
+    font-size: .75rem;
+    padding: 10px;
+}
+
+div p{
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.contenedor .btn{
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.contenedor h2{
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.contenedor-flex{
+    display:inline-flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    width: 300px;
+    height: 375px;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.contenedor{
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px 30px 0 30px;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+<!-- listado noticias -->
+
+.contenedor-flex-Noti{
+    display:inline-flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    width: 1200px;
+    height: 600px;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 7px 13px 37px #000;
+    justify-content: center;
+}
+
+.img-noti{
+    width: 850px;
+    height: 450px;
+    margin-bottom: 40px;
+        
+}
+
+.contenedor .tit{
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.contenedor .tit-not{
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.contenedor .cont-not{
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.contenedor .fecha{
+    font-size: 1.5rem;
+    margin-bottom: 1px;
+}
+
+.contenedor .creador{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.form-control{
+   width: 70%;
+}
+
+.contenedor-mod-titu{
+    background: blueviolet;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    margin: 10px auto;
+      
+}
